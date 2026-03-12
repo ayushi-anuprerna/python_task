@@ -1,0 +1,16 @@
+#PYTHON WEBSCRAPPING
+import requests
+from bs4 import BeautifulSoup
+url='https://www.geeksforgeeks.org/'
+mainPage=requests.get(url)
+parsed=BeautifulSoup(mainPage.text,"html.parser")
+print(parsed.title)
+anchorsList=parsed.find_all('a')
+for anchor in anchorsList:
+ print(anchor.string)
+#print(parsed.find_all('a'))
+print(parsed.find('h1'))
+print(parsed.find('img')["src"])
+print(parsed.find('img').get("src"))
+
+
